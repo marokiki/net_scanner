@@ -2,6 +2,9 @@ PATH
   remote: .
   specs:
     net_scanner (0.1.0)
+      ipaddress
+      net-ping
+      parallel
       thor
 
 GEM
