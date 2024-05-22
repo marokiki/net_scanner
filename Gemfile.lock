@@ -101,7 +101,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  aruba
+  aruba (~> 2.2.0)
   ipaddress
   net-ping
   net_scanner!

@@ -4,8 +4,33 @@ RSpec.describe NetScanner do
   it "has a version number" do
     expect(NetScanner::VERSION).not_to be nil
   end
+end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+RSpec.describe NetScanner::CLI, type: :aruba do
+  context "when help is provided" do
+    it "shows help message" do
+      run_command("net_scanner help")
+      expect(last_command_started).to have_output(/Commands:/)
+    end
+  end
+
+  context "when no command is provided" do
+    it "prints error message when no network address is provided" do
+      run_command("net_scanner netscan")
+      expect(last_command_started).to have_output(/Please provide a network address./)
+    end
+  end
+
+  context "when network address is provided" do
+    let(:network_address) { "192.168.20.0/24" }
+    let(:ip_address) { "192.168.20.1" }
+    let(:ip_range) { (1..254).map { |i| "192.168.20.#{i}" } }
+
+    it "scans the network and prints the results" do
+      ping_result = Net::Ping::External.new(ip_address).ping?
+      run_command_and_stop("net_scanner netscan #{network_address}")
+      expect(last_command_started).to have_output(/Scanning network #{network_address}......\n/)
+      expect(last_command_started).to have_output(/#{ip_address}\/24 - #{ping_result ? "Active" : "Inactive"}/)
+    end
   end
 end
