@@ -26,7 +26,7 @@ RSpec.describe NetScanner::CLI, type: :aruba do
     let(:ip_address) { "192.168.20.1" }
 
     it "scans the network and prints the results" do
-      ping_result = Net::Ping::External.new(ip_address).ping?
+      # ping_result = Net::Ping::External.new(ip_address).ping?
       run_command("net_scanner netscan #{network_address}")
       expect(last_command_started).to have_output("Scanning network #{network_address}......")
       # expect(last_command_started).to have_output(/#{ip_address}\/24 - #{ping_result ? "Active" : "Inactive"}/)
