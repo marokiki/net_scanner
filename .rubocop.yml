@@ -1,9 +1,21 @@
 AllCops:
   TargetRubyVersion: 3.0
-  Enabled: false
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
 Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+MethodLength:
+  CountComments: true 
+  Max: 30
+
+Metrics/AbcSize:
+  Max: 25

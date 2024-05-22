@@ -23,13 +23,13 @@ module NetScanner
         results = Array.new(ip_range.size)
 
         Parallel.each_with_index(ip_range, in_threads: 30) do |ip, index|
-          if Net::Ping::External.new(ip.to_s).ping?
-            results[index] = "#{ip}/#{net_mask} - Active"
-          else
-            results[index] =  "#{ip}/#{net_mask} - Inactive"
-          end
+          results[index] = if Net::Ping::External.new(ip.to_s).ping?
+                             "#{ip}/#{net_mask} - Active"
+                           else
+                             "#{ip}/#{net_mask} - Inactive"
+                           end
         rescue SocketError
-          results[index] =  "#{ip}/#{net_mask} - Unknown"
+          results[index] = "#{ip}/#{net_mask} - Unknown"
         end
 
         puts results
