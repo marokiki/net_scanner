@@ -101,11 +101,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  aruba (~> 2.2.0)
-  ipaddress
-  net-ping
+  aruba
   net_scanner!
-  parallel
   rake (~> 13.0)
   rspec (~> 3.0)
   rubocop (~> 1.21)

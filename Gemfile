@@ -11,10 +11,5 @@ gem "rspec", "~> 3.0"
 
 gem "rubocop", "~> 1.21"
 
-gem "net-ping"
+gem "aruba"
 
-gem "ipaddress"
-
-gem 'aruba', '~> 2.2.0'
-
-gem "parallel"
