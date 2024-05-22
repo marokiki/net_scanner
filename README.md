@@ -16,7 +16,7 @@ Commands:
   net_scanner netscan [NETWORK_ADDRESS/NET_MASK]  # Scan your local network and get a list of all connected devices.
 
 ## Example
-& net_scanner netscan 192.168.20.0/24
+    $ net_scanner netscan 192.168.20.0/24
 ```
 Scanning network 192.168.20.0/24......
 192.168.20.1/24 - Active
