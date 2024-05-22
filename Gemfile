@@ -15,5 +15,6 @@ gem "net-ping"
 
 gem "ipaddress"
 
-gem "parallel"
 gem 'aruba', '~> 2.2.0'
+
+gem "parallel"
